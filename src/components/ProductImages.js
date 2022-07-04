@@ -1,11 +1,12 @@
 import React from "react"
 
-function ProductImages() {
+function ProductImages(props) {
+	const { image, setImage } = props
 	return (
 		<div
 			style={{
 				display: "flex",
-                flexDirection: "column",
+				flexDirection: "column",
 				justifyContent: "space-between",
 				margin: "10px",
 				width: "400px",
@@ -16,12 +17,16 @@ function ProductImages() {
 		>
 			<label>
 				Add images :
-				<input type="file" name="images" />
+				<input
+					type="file"
+					name="images"
+					onChange={(e) => {
+						setImage(e.target.files[0])
+					}}
+				/>
 			</label>
 			<div>
-				{[1,2,3,4].map((url) => (
-					<img key={url} src={url} alt="..." />
-				))}
+				<img src={image} alt="..." />
 			</div>
 		</div>
 	)

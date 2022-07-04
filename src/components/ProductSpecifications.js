@@ -1,6 +1,7 @@
 import React from 'react'
 
-function ProductSpecifications() {
+function ProductSpecifications(props) {
+	const { productDet, setProductDet } = props
   return (
 		<div
 			style={{
@@ -14,7 +15,14 @@ function ProductSpecifications() {
 			}}
 		>
 			<label>Enter Specifications : </label>
-			<textarea rows={8} cols={22} />
+			<textarea
+				rows={8}
+				cols={22}
+				value={productDet.specification}
+				onChange={(e) => {
+					setProductDet({ ...productDet, specification: e.target.value })
+				}}
+			/>
 		</div>
   )
 }

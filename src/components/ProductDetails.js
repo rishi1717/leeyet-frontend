@@ -1,6 +1,7 @@
 import React from "react"
 
-function ProductDetails() {
+function ProductDetails(props) {
+	const { productDet, setProductDet } = props
 	return (
 		<div
 			style={{
@@ -22,7 +23,14 @@ function ProductDetails() {
 				}}
 			>
 				Name :
-				<input type="text" name="name" />
+				<input
+					type="text"
+					name="name"
+					value={productDet.name}
+					onChange={(e) => {
+						setProductDet({ ...productDet, name: e.target.value })
+					}}
+				/>
 			</label>
 			<label
 				style={{
@@ -32,7 +40,14 @@ function ProductDetails() {
 				}}
 			>
 				MRP :
-				<input type="text" name="mrp" />
+				<input
+					type="text"
+					name="mrp"
+					value={productDet.mrp}
+					onChange={(e) => {
+						setProductDet({ ...productDet, mrp: e.target.value })
+					}}
+				/>
 			</label>
 			<label
 				style={{
@@ -42,7 +57,14 @@ function ProductDetails() {
 				}}
 			>
 				Discount :
-				<input type="text" name="discount" />
+				<input
+					type="text"
+					name="discount"
+					value={productDet.discount}
+					onChange={(e) => {
+						setProductDet({ ...productDet, discount: e.target.value })
+					}}
+				/>
 			</label>
 			<label
 				style={{
@@ -52,7 +74,14 @@ function ProductDetails() {
 				}}
 			>
 				Shipping Charge :
-				<input type="text" name="shippingCharge" />
+				<input
+					type="text"
+					name="shippingCharge"
+					value={productDet.shippingCharge}
+					onChange={(e) => {
+						setProductDet({ ...productDet, shippingCharge: e.target.value })
+					}}
+				/>
 			</label>
 		</div>
 	)
